@@ -1,2 +1,3 @@
 + Desordenar el array de Jugadores.
 + ¿Algo más?
+* Otro intento.
