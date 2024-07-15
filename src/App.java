@@ -20,6 +20,8 @@ public class App {
         Partida partida = new Partida(6, 2, tiposJuego[1], 3);
         Arrays.stream(jugadores).forEach(j -> partida.agregar(new Jugador(j)));
 
+        partida.start();
+
         while(!partida.ganada()) {
             int turno = partida.getTurno();
             Jugador jugador = partida.jugador();

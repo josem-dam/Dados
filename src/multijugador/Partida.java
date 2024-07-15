@@ -1,6 +1,8 @@
 package multijugador;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.function.Function;
 
 import solitario.EjecucionJuego;
@@ -90,6 +92,18 @@ public class Partida {
    }
 
    /**
+    * Da comienzo a la partida, cerrado la entrada de más jugadores
+    * @return true si la partida no estaba empezada
+    */
+   public boolean start() {
+      if(iniciada) return false;
+      iniciada = true;
+      // Sortea el orden de los jugadores.
+      Collections.shuffle(jugadores);
+      return true;
+   }
+
+   /**
     * Devuelve el jugador que ocupa un determinado turno.
     * @param turno - El turno del jugador. Si no se especifica, se devuelve el jugador que
     *   debe lanzar los dados.
@@ -112,10 +126,10 @@ public class Partida {
       ArrayList<Jugador> ganadoresRonda;
       Jugador[] ganadores;
 
+      if(!iniciada) throw new EjecucionJuego("Debe comenzar explícitamente la partida con start()");
       if(jugadores.size() == 0) throw new EjecucionJuego("No hay jugadores en la partida");
       if(ganada()) throw new EjecucionJuego("No puede jugarse más. La partida ya ha acabado");
 
-      iniciada = true;
       Solitario partida = jugadores.get(turno).juego;
 
       try { partida.jugar(); }
