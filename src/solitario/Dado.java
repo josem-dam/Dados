@@ -17,7 +17,7 @@ public class Dado {
      * @return El entero aleatorio
      */
     public static int obtenerEnteroAleatorio(int min, int max) {
-        return (int) (Math.random()*(max - min) + min);
+        return (int) (Math.random()*(max + 1 - min) + min);
     }
 
     /**
