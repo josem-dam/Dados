@@ -1,5 +1,0 @@
-Esto es sólo una prueba.
-Y esta es la segunda fase de la prueba.
-Tercera fase.
-Cuarta fase.
-Añado para comprobar fetch.
